@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="preview.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <title>Preview Product</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(()=> {
+            prod.quantity = parseInt(document.getElementById("value").value);
+            //var id = prod._id;
+            // $("#form").submit(function (event) {
+            //     event.preventDefault();
+
+            //     $.ajax({
+            //         type: 'POST',
+            //         url: '/add/id/quan',
+            //         data: $('#form').serialize(),
+            //         dataType: "json",
+            //         success: function (response) {
+                                               
+            //         },
+            //         error: function () {
+            //         }
+            //     })
+            // });
+
+        })
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <div class="leftHeader">
+            <img src="logobold.png" class="logo" height="120px" padding-top="-5px">
+        </div>
+
+        <div class="headerMiddle">
+            <p></p>
+        </div>
+
+        <div class="headerRight">
+            <form action="/shop" method="get">
+                <button>
+                    <span class="material-symbols-outlined">
+                        arrow_back
+                    </span>
+                </button>
+            </form>
+            <form id="login" action="/form" method="get"><button>
+                    <span class="material-symbols-outlined">
+                        person
+                    </span>
+                </button></form>
+            <form id="logout"action="/logout" method="get"><button>
+                    <span class="material-symbols-outlined">
+                        logout
+                    </span>
+                </button></form>
+
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="left">
+            <p></p>
+        </div>
+
+        <div class="content">
+            <div class="img"><img src="data:image/<%=prod.image.contentType%>;base64,<%=prod.image.data.toString('base64')%>"
+                 height="550px" width="550px"></div>
+            <div class="desc">
+                <h3><%=prod.name%></h3>
+                <br>
+                <br>
+                <p><%=prod.description%><br><br><br>
+                   <b>$<%=prod.price%></b></p>
+                    <div class="buy">
+                        <div class=qtty>
+                        <form id='myform' method='POST' class='quantity' action='#'>
+                            <div class="counter">
+                                <span class="down" onClick='decreaseCount(event, this)'>-</span>
+                                <input type="text" id="value" value="1">
+                                <span class="up"  onClick='increaseCount(event, this)'>+</span>
+                              </div>
+                        </form></div>
+                        <div class="addD"><form action="/add/<%=prod._id%>/2" method="post" id="form"><button class="add">Add To Cart</button></form></div>
+                    </div>
+            </div>
+        </div>
+
+        <div class="right">
+            <p></p>
+        </div>
+        
+    </div>
+
+    <script type="text/javascript">
+        function increaseCount(a, b) {
+          var input = b.previousElementSibling;
+          var value = parseInt(input.value, 10); 
+          value = isNaN(value)? 1 : value;
+          value ++;
+          input.value = value;
+        }
+        function decreaseCount(a, b) {
+          var input = b.nextElementSibling;
+          var value = parseInt(input.value, 10); 
+          if (value > 1) {
+            value = isNaN(value)? 1 : value;
+            value --;
+            input.value = value;
+          }
+        }
+      </script>
+</body>
+
+</html>

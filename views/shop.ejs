@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="shop.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <title>Flourish- Shop Now</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(() => {
+        if (!<%=loggedIn%>) {
+            document.getElementById("cart").style.display = "none";
+            document.getElementById("logout").style.display = "none";            
+            document.getElementById("login").style.display = "inline";
+        }
+      else {
+            document.getElementById("cart").style.display = "inline";
+            document.getElementById("login").style.display = "none";
+            document.getElementById("logout").style.display = "inline";
+        }
+        if ((!<%= isAdmin %> && <%=loggedIn%>) || !<%=loggedIn%>) {
+                document.getElementById("add").style.display = "none";
+            }
+        else {
+                document.getElementById("add").style.display = "inline";
+        }
+    })
+    </script>
+
+</head>
+
+<body>
+    <div class="header">
+        <div class="leftHeader">
+            <img src="logobold.png" class="logo" height="120px" padding-top="-5px">
+        </div>
+
+        <div class="headerMiddle">
+            <ul class="options">
+                <form action="/" method="get">
+                    <li><button>Home</button></li>
+                </form>
+                <!-- <form action="/" method="get">
+              <li><button>Book An Appointment</button></li>
+            </form> -->
+                <form action="/shop" method="get">
+                    <li><button class="tab">Shop</button></li>
+                </form>
+                <form action="/news" method="get">
+                    <li><button>News</button></li>
+                </form>
+            </ul>
+        </div>
+        <div class="headerRight">
+            
+            <form id="logout" action="/logout" method="get"><button>
+                    <span class="material-symbols-outlined">
+                        logout
+                    </span>
+                </button></form>
+            <form id="cart" action="/cart" method="get"><button>
+                    <span class="material-symbols-outlined">
+                        shopping_cart
+                    </span>
+                </button></form>
+            <form id="add" action="/addItem" method="get">
+                <button>
+                    <span class="material-symbols-outlined">
+                        add
+                    </span></button>
+            </form>
+            <form id="login" action="/form" method="get"><button>
+                <span class="material-symbols-outlined">
+                    person
+                </span>
+            </button></form>
+        </div>
+    </div>
+
+    <div class="products-container">
+        <!-- <div class="products-list">
+            <form action="/previewItem" method="get"><button><img src="nails.jpg" class="preview"
+                        width="250px" height="250px"></button></form>
+            <div class="flex-div">
+                <div class="products-info">
+                    <p>Name <br>
+                        $Price</p>
+                    <form><button class="add">Add To Cart</button></form>
+                </div>
+            </div>
+        </div> -->
+        <%products.forEach(prods=> {%>
+            <div class="products-list">
+                <form action="/previewItem/:<%=prods._id%>" method="get"><button><img
+                            src="data:image/<%=prods.image.contentType%>;base64,<%=prods.image.data.toString('base64')%>"
+                            class="preview" height="250px" width="250px"></button></form>
+                <div class="flex-div">
+                    <div class="products-info">
+                        <p>
+                            <%=prods.name%> <br><br>
+                                $<%=prods.price%>
+                        </p>
+                        <form action="/addToCart/<%=prods._id%>" method="post"><button class="add">Add To
+                                Cart</button></form>
+                    </div>
+                </div>
+            </div>
+            <%})%>
+
+
+    </div>
+
+    <br><br> <br>
+    <footer id="footer">
+        <br>
+        <h2 class="footertxt">Contact Us!</h2>
+
+        <div class="Fcontainer">
+            <div class="Fleft">
+                <p></p>
+            </div>
+            <div class="Fcenter">
+                <div>
+                    <a href="https://www.instagram.com/"><img src="instagram.png" width="30px" height="30px"></a>
+                </div>
+
+                <div>
+                    <a
+                        href="https://www.google.com/maps/place/23+Ainslie+St+N,+Cambridge,+ON+N1R+3J3,+Canada/@43.3595651,-80.3140144,19z/data=!3m1!4b1!4m5!3m4!1s0x882c77b649b37c39:0x61983b59b39b9367!8m2!3d43.3595651!4d-80.3134672">
+                        <img src="map.png" width="30px" height="30px">
+                    </a>
+                </div>
+
+                <div><a href="tel:+96176911883"><img src="telephone-call.png" width="30px" height="30px"></a></div>
+
+                <div>
+                    <a href="https://www.snapchat.com/">
+                        <img src="snapchat.png" width="30px" height="30px">
+                    </a>
+                </div>
+
+            </div>
+            <div class="Fright">
+                <p></p>
+            </div>
+
+        </div>
+        <br>
+    </footer>
+</body>
+
+</html>

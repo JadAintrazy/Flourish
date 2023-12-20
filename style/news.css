@@ -1,0 +1,94 @@
+body {
+    height: 100%;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+}
+
+.header {
+    display: flex;
+    /* position: sticky; */
+    align-items: center;
+    padding-left: 2%;
+    justify-content: space-between;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background: #f4f4f4;
+    top: 0;
+    z-index: 10;
+    height: 10%;
+    width: 100%;
+}
+
+.headerLeft {
+    width: 20%;
+}
+
+.headerMiddle {
+    width: 35%;
+    margin-left: -350px;
+}
+
+
+.headerRight {
+    width: 10%;
+}
+
+.options button {
+    background-color: transparent;
+    border-style: hidden;
+    font-size: 17px;
+    margin-bottom: -75px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 550;
+    cursor: pointer;
+}
+
+.options button:hover {
+    color: #f4beb1;
+}
+
+.tab {
+    text-decoration: underline;
+}
+
+li,
+.options {
+    justify-content: space-between;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.container{
+    width: 100%;
+    height: 80%;
+}
+
+footer {
+    background-color: #f4f4f4;
+    align-content: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.Fcontainer {
+    display: flex;
+}
+
+.Fcontainer .Fleft,
+.Fright {
+    width: 50%;
+}
+
+.Fcenter {
+    display: flex;
+    width: 10%;
+    justify-content: space-between;
+}
+
+footer img:hover {
+    opacity: 80%;
+}
+
+.footertxt {
+    text-align: center;
+    font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

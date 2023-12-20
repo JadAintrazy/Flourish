@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="form.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+
+    <title>Flourish- User Login</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#form1").submit(function (event) {
+                event.preventDefault();
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/register',
+                    data: $('#form1').serialize(),
+                    dataType: "json",
+                    success: function (response) {
+                        //alert("a");
+                        //console.log(response.Success);
+                        $('#form1')[0].reset();
+
+                        document.getElementById("check").innerHTML = response.Success;
+                        //ADD THIS CODE
+                        setTimeout(function () {
+                            document.getElementById("check").innerHTML = "";
+                        }, 5000);
+                        if (response.Success == "You are regestired. You can login now!") {
+                            document.getElementById("log").click();
+                        };
+                    },
+                    error: function () {
+                    }
+                })
+            });
+
+
+            $( "#form2" ).submit(function(event) {
+				event.preventDefault();
+
+				$.ajax({
+					type: 'POST',
+					url: '/login',
+					data: $('#form2').serialize(),
+					dataType: "json",
+					success: function(response){
+						//alert("a");
+						//console.log(response.Success);
+						$('#form2')[0].reset();
+
+						document.getElementById("check2").innerHTML=response.Success;
+         					//ADD THIS CODE
+         					setTimeout(function(){
+         						document.getElementById("check2").innerHTML="";
+         					},3000);
+         					if (response.Success=="Success!") {
+         						document.getElementById("aa").click();
+         					};
+         				},
+         				error: function() {
+         				}
+         			})
+			});
+
+		});
+        
+    </script>
+
+</head>
+
+<!--Hey! This is the original version
+of Simple CSS Waves-->
+<div class="head">
+    <div class="leftHeader">
+        <img src="logobold.png" class="logo" height="120px" padding-top="-5px">
+    </div>
+    <div class="righth">
+        <form action="/" method="get"><button> <span class="material-symbols-outlined">
+                    home
+                </span></button></form>
+    </div>
+</div>
+
+<div class="header">
+
+    <!--Content before waves-->
+    <div class="inner-header flex">
+
+    </div>
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+
+            <form method="post" id="form1">
+
+                <h1>Create Account</h1>
+
+                <input type="text" placeholder="Name" name="name" />
+                <input type="email" placeholder="Email" name="registrationEmail" required />
+                <input type="password" placeholder="Password" name="pass" required />
+                <input type="password" placeholder="Confirm Password" name="confirmPass" required />
+                <button type="submit">Sign Up</button>
+                
+                <div class="mssg bg-danger">
+                    <span id="check"></span>
+                </div>
+    
+            </form>
+         
+        </div>
+
+        <div class="form-container sign-in-container">
+            <form method="post" id="form2">
+                <h1>Sign in</h1>
+
+                <!-- <span>or use your account</span> -->
+                <input type="email" placeholder="Email" name="email" required />
+                <input type="password" placeholder="Password" name="password" required />
+
+                <button id="signin">Sign In</button>
+
+                <div class="mssg bg-danger">
+                    <span id="check2"></span>
+                </div>
+
+                <div id="LangTable"><a href="/" id="aa"></a>
+                </div>
+
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Enter your personal details and start journey with us</p>
+                    <button class="ghost" id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Waves Container-->
+    <div>
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+            <defs>
+                <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+            </defs>
+            <g class="parallax">
+                <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+                <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+                <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+                <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+            </g>
+        </svg>
+    </div>
+    <!--Waves end-->
+
+</div>
+<!--Header ends-->
+
+<!--Content starts-->
+<!-- <div class="content flex">
+      <p>By.Goodkatz | Free to use </p> -->
+<!-- </div> -->
+<!--Content ends-->
+<script>
+    const signUpButton = document.getElementById('signUp');
+    const signInButton = document.getElementById('signIn');
+    const container = document.getElementById('container');
+
+    signUpButton.addEventListener('click', () => {
+        container.classList.add("right-panel-active");
+    });
+
+    signInButton.addEventListener('click', () => {
+        container.classList.remove("right-panel-active");
+    });
+</script>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="addItem.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <title>Flourish- Add Item</title>
+</head>
+
+<body>
+    <div class="header">
+        <div class="leftHeader">
+            <img src="logobold.png" class="logo" height="120px" padding-top="-5px">
+        </div>
+
+        <div class="headerMiddle">
+            <p></p>
+        </div>
+        <div class="headerRight">
+                <form action="/shop" method="get"><button>
+                    <span class="material-symbols-outlined">
+                        arrow_back
+                    </span>
+                </button></form>    
+        </div>
+    </div>
+    <div class="container">
+        <div class="left">
+
+        </div>
+        <div class="form-container">
+            <form action="/insert" method="POST" enctype="multipart/form-data">
+                <br>
+                <h3 class="info"> Add new products </h3><br><br>
+                <label class="desc"> Name <input class="name" name="name" type="text" placeholder="Insert Name"
+                        required /></label>
+                <br><br>
+                <label class="desc"> Price <input class="price" name="price" type="number" min="0.0"
+                        placeholder="Insert Price" required /></label>
+                <br><br>
+                <label class="desc"> Description <br> <textarea class="descrip" name="description"
+                        placeholder="Insert Description" required></textarea></label>
+                <br><br>
+                <label class="upload-section"> Upload Image<input class="button" name="image" type="file"
+                        accept="image/*" /></label>
+                <br><br><br>
+                <input class="submit" type="submit" placeholder="submit" />
+                <br><br>
+                <img src="promos.webp" alt="pic" width="50%" float="center"> <br> <br>
+            </form>
+        </div>
+        <div class="right">
+
+        </div>
+    </div>
+</body>
+
+</html>

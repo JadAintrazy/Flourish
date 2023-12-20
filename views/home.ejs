@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+  <link rel="stylesheet" type="text/css" href="./slick/slick.css" />
+  <link rel="stylesheet" type="text/css" href="./slick/slick-theme.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Flourish</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(() => {
+      if (!<%= loggedIn %>) {
+        
+      document.getElementById("cart").style.display = "none";
+      document.getElementById("logout").style.display = "none";
+
+    }
+      else {    
+
+      document.getElementById("cart").style.display = "inline";
+      document.getElementById("login").style.display = "none";
+      document.getElementById("logout").style.display = "inline";
+
+    }
+    })
+  </script>
+
+</head>
+
+<body>
+  <!-- 10 hours -->
+  <div class="header">
+    <div class="leftHeader">
+      <img src="logobold.png" class="logo" height="120px" padding-top="-5px">
+    </div>
+
+    <div class="headerMiddle">
+      <ul class="options">
+        <form action="/" method="get">
+          <li><button class="tab">Home</button></li>
+        </form>
+        <!-- <form action="/" method="get">
+          <li><button>Book An Appointment</button></li>
+        </form> -->
+        <form action="/shop" method="get">
+          <li><button>Shop</button></li>
+        </form>
+        <form action="/news" method="get">
+          <li><button>News</button></li>
+        </form>
+      </ul>
+    </div>
+    <div class="headerRight">
+    
+      <form id="logout" action="/logout" method="get"><button>
+          <span class="material-symbols-outlined">
+            logout
+          </span>
+        </button></form>
+      <form id="cart" action="/cart" method="get"><button>
+          <span class="material-symbols-outlined">
+            shopping_cart
+          </span>
+        </button></form>
+        <form id="login" action="/form" method="get"><button>
+          <span class="material-symbols-outlined">
+            person
+          </span>
+        </button></form>
+    </div>
+    <!-- 3.5 hours -->
+  </div>
+
+  <br><br>
+  <div class="container">
+    <div class="list-container">
+      <div id="gridThumbs" class="portfolio-grid-basic grid-wrapper collection-content-wrapper"
+        data-controller="GridImages" data-animation-role="section" data-controllers-bound="GridImages">
+
+        <a class="grid-item" href="/shop">
+          <div class="grid-image">
+            <div class="grid-image-inner-wrapper">
+
+              <img src="theOrdinary.webp" width="400px" height="350px">
+
+            </div>
+          </div>
+          <div class="portfolio-text">
+            <h3 class="portfolio-title">Products</h3>
+          </div>
+        </a>
+
+        <a class="grid-item" href="#desc">
+          <div class="grid-image">
+            <div class="grid-image-inner-wrapper">
+
+              <img src="img2.jpg" width="400px" height="350px">
+
+            </div>
+          </div>
+          <div class="portfolio-text">
+            <h3 class="portfolio-title">About Us</h3>
+          </div>
+        </a>
+
+        <a class="grid-item" href="#slider">
+          <div class="grid-image">
+            <div class="grid-image-inner-wrapper">
+
+              <img src="promos.webp" width="400px" height="350px">
+
+            </div>
+          </div>
+          <div class="portfolio-text">
+            <h3 class="portfolio-title">Snippets</h3>
+          </div>
+        </a>
+
+        <a class="grid-item" href="#reviews">
+          <div class="grid-image">
+            <div class="grid-image-inner-wrapper">
+              <img src="reviews.jpg" width="400px" height="350px">
+            </div>
+          </div>
+          <div class="portfolio-text">
+            <h3 class="portfolio-title">Reviews</h3>
+          </div>
+        </a>
+
+        <a class="grid-item" href="#promos">
+          <div class="grid-image">
+            <div class="grid-image-inner-wrapper">
+              <img src="img1.png" width="400px" height="350px">
+            </div>
+          </div>
+          <div class="portfolio-text">
+            <h3 class="portfolio-title">Promos</h3>
+          </div>
+        </a>
+
+        <a class="grid-item" href="#footer">
+          <div class="grid-image">
+            <div class="grid-image-inner-wrapper">
+              <img src="kit1.jpg" width="400px" height="350px">
+            </div>
+          </div>
+          <div class="portfolio-text">
+            <h3 class="portfolio-title">Contact</h3>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </div>
+
+  <br><br><br><br><br>
+  <div class="description" id="desc">
+    <div class="leftD">
+    </div>
+    <div class="centerD">
+      <br><br>
+      <h2>OUR STORY</h2>
+
+      <p>In 2019 Flourish got a little younger as Casey and Jennifer Subject
+        became owners of the already existing spa, established in 2001 by the original
+        founder. This unstoppable sister duo (which is what they are known as in the down
+        town core) both have a passion for all things beauty and wellness. Their vision was
+        to combine new innovative beauty services with the already existing spa and wellness
+        treatments. Casey, an established aesthetician with 5 years experience in skincare and
+        aesthetics is now known for her love of nail art & brow transformations. The duo will
+        continue to create a space where everyone is welcome, and where you can come to
+        be pampered, relax and rejuvenate. A spa where you can leave feeling forever younger.<br><br>
+      </p><br>
+    </div>
+    <div class="rightD">
+      <p></p>
+    </div>
+  </div>
+
+  <br><br><br>
+  <div id="reviews">
+    <div id="Rleft">
+      <p></p>
+    </div>
+
+    <div id="Rcontent">
+      <span class="heading">User Rating</span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star"></span>
+      <p>4.1 average based on 254 reviews.</p>
+      <hr style="border:3px solid #f1f1f1">
+
+      <div class="row">
+        <div class="side">
+          <div>5 star</div>
+        </div>
+        <div class="middle">
+          <div class="bar-container">
+            <div class="bar-5"></div>
+          </div>
+        </div>
+        <div class="side right">
+          <div>150</div>
+        </div>
+        <div class="side">
+          <div>4 star</div>
+        </div>
+        <div class="middle">
+          <div class="bar-container">
+            <div class="bar-4"></div>
+          </div>
+        </div>
+        <div class="side right">
+          <div>63</div>
+        </div>
+        <div class="side">
+          <div>3 star</div>
+        </div>
+        <div class="middle">
+          <div class="bar-container">
+            <div class="bar-3"></div>
+          </div>
+        </div>
+        <div class="side right">
+          <div>15</div>
+        </div>
+        <div class="side">
+          <div>2 star</div>
+        </div>
+        <div class="middle">
+          <div class="bar-container">
+            <div class="bar-2"></div>
+          </div>
+        </div>
+        <div class="side right">
+          <div>6</div>
+        </div>
+        <div class="side">
+          <div>1 star</div>
+        </div>
+        <div class="middle">
+          <div class="bar-container">
+            <div class="bar-1"></div>
+          </div>
+        </div>
+        <div class="side right">
+          <div>20</div>
+        </div>
+      </div>
+    </div>
+    <div id="Rright">
+      <p></p>
+    </div>
+  </div>
+
+  <br><br><br><br>
+  <div class="promos" id="promos">
+    <div class="pLeft"><img src="promosleft.webp" width="50%" height="50%"></div>
+
+    <div class="pContent"> <br>
+      <h2>Promotions</h2>
+      <h3>All year long</h3>
+      <h4>Birthday Discount</h4>
+      <h5>Happy Birthday to you!!</h5>
+      <p>20% off all Dermalogica products for the full month of your birthday.
+        Enjoy 20% off Spa/Shellac manicure set, Spa/shellac pedicure set, Elite and premium Elite Facials. </p>
+      <h4>Dermalogica Rewards Points</h4>
+      <p>You will earn one point every $15 spent on Dermalogica products.
+        Once your card has been filled you will receive $15 off your next Dermalogica purchase.
+        Only 20 points to fill up one card! </p><br>
+    </div>
+
+    <div class="pRight"><img src="promosRight.png" width="50%" height="50%"></div>
+  </div>
+
+  <br><br> <br>
+  <section>
+    <br>
+    <h2 class="footertxt" id="slider">Follow our journey.</h2>
+    <br>
+
+    <div class="slickSlider">
+      <div><img src="guasha.webp" width="100%" height="200px"></div>
+      <div><img src="nails.jpg" width="100%" height="200px"></div>
+      <div><img src="burberry.webp" width="100%" height="200px"></div>
+      <div><img src="laRochePosay.jpg" width="100%" height="200px"></div>
+      <div><img src="kit1.jpg" width="100%" height="200px"></div>
+      <div><img src="productsSLick.jpg" width="100%" height="200px"></div>
+      <div><img src="guasha set.jpg" width="100%" height="200px"></div>
+      <div><img src="vsperfumes.webp" width="100%" height="200px"></div>
+      <div><img src="nails3.webp" width="100%" height="200px"></div>
+    </div>
+
+    <br><br> <br>
+  </section>
+
+  <br><br> <br>
+  <footer id="footer">
+    <br>
+    <h2 class="footertxt">Contact Us!</h2>
+
+    <div class="Fcontainer">
+      <div class="Fleft">
+        <p></p>
+      </div>
+      <div class="Fcenter">
+        <div>
+          <a href="https://www.instagram.com/"><img src="instagram.png" width="30px" height="30px"></a>
+        </div>
+
+        <div>
+          <a
+            href="https://www.google.com/maps/place/23+Ainslie+St+N,+Cambridge,+ON+N1R+3J3,+Canada/@43.3595651,-80.3140144,19z/data=!3m1!4b1!4m5!3m4!1s0x882c77b649b37c39:0x61983b59b39b9367!8m2!3d43.3595651!4d-80.3134672">
+            <img src="map.png" width="30px" height="30px">
+          </a>
+        </div>
+
+        <div><a href="tel:+96176911883"><img src="telephone-call.png" width="30px" height="30px"></a></div>
+
+        <div>
+          <a href="https://www.snapchat.com/">
+            <img src="snapchat.png" width="30px" height="30px">
+          </a>
+        </div>
+
+      </div>
+      <div class="Fright">
+        <p></p>
+      </div>
+
+    </div>
+    <br>
+  </footer>
+
+  <div class="phone-footer">
+    <div class="phoneLeft">
+      <p></p>
+    </div>
+    <div class="phoneMiddle">
+      <ul class="optionsP">
+        <form action="/" method="get">
+          <li><button class="under">Home</button></li>
+        </form>
+        <!-- <form action="/" method="get">
+          <li><button>Book An Appointment</button></li>
+        </form> -->
+        <form action="/" method="get">
+          <li><button>Shop</button></li>
+        </form>
+        <form action="/" method="get">
+          <li><button>News</button></li>
+        </form>
+      </ul>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script type="text/javascript" src="./slick/slick.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $('.slickSlider').slick({
+        slidesToShow: 5,
+        speed: 300,
+        arrows: true,
+        dots: true,
+        infinite: true,
+        slidesToScroll: 1,
+        autoplay: true,
+        fade: false,
+      });
+    });
+  </script>
+</body>
+
+</html>
